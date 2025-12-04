@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 19.8, "left": 95.4, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -222.8, "left": 48, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": 78.3,
+      "left": -176.9,
+      "attrs": { "distance": "12" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -172.5,
+      "left": -341.4,
+      "attrs": { "temperature": "68.9", "humidity": "42" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -160.8,
+      "left": 520.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 284.8,
+      "left": 428,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "ultrasonic1:VCC", "uno:5V", "red", [ "v172.8", "h326.4", "v0", "h25" ] ],
+    [
+      "ultrasonic1:GND",
+      "uno:GND.3",
+      "black",
+      [ "v163.2", "h334.8", "v0", "h0", "v0", "h0", "v0", "h0", "v0", "h0" ]
+    ],
+    [ "ultrasonic1:ECHO", "uno:8", "green", [ "v28.8", "h162.4", "v-182.4", "h182.4" ] ],
+    [ "ultrasonic1:TRIG", "uno:9", "magenta", [ "v38.4", "h162.8", "v-201.6", "h172.8" ] ],
+    [ "servo1:V+", "uno:3.3V", "green", [ "h-19.2", "v403.3", "h230.4" ] ],
+    [ "servo1:GND", "uno:GND.2", "black", [ "h-28.8", "v432", "h249.6" ] ],
+    [ "servo1:PWM", "uno:7", "yellow", [ "v115.4", "h246" ] ],
+    [ "dht1:GND", "uno:GND.3", "black", [ "v576", "h633.6" ] ],
+    [ "dht1:VCC", "uno:5V", "red", [ "v604.8", "h38.4" ] ],
+    [ "uno:2", "dht1:SDA", "orange", [ "v-38.4", "h-658.3", "v-28.8" ] ],
+    [ "lcd1:GND", "uno:GND.3", "black", [ "h-153.6", "v-9.6" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "bz1:1", "uno:GND.3", "black", [ "v336", "h-268.8" ] ],
+    [ "bz1:2", "uno:10", "green", [ "v28.8", "h-307.6" ] ]
+  ],
+  "dependencies": {}
+}
